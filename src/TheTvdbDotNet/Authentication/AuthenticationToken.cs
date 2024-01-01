@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text;
-using Newtonsoft.Json;
+using System.Text.Json;
 
 namespace TheTvdbDotNet.Authentication
 {
@@ -15,7 +15,7 @@ namespace TheTvdbDotNet.Authentication
         public void SetToken(string token)
         {
             TokenString = token;
-            Token = JsonConvert.DeserializeObject<Token>(Decode(token));
+            Token = JsonSerializer.Deserialize<Token>(Decode(token));
         }
 
         private string Decode(string token)

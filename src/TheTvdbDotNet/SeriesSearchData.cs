@@ -1,31 +1,31 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TheTvdbDotNet
 {
     public class SeriesSearchData
     {
-        [JsonProperty("aliases")]
+        [JsonPropertyName("aliases")]
         public string[] Aliases { get; set; }
 
-        [JsonProperty("banner")]
+        [JsonPropertyName("banner")]
         public string Banner { get; set; }
 
-        [JsonProperty("firstAired")]
+        [JsonPropertyName("firstAired")]
         public string FirstAired { get; set; }
 
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonProperty("network")]
+        [JsonPropertyName("network")]
         public string Network { get; set; }
 
-        [JsonProperty("overview")]
+        [JsonPropertyName("overview")]
         public string Overview { get; set; }
 
-        [JsonProperty("seriesName")]
+        [JsonPropertyName("seriesName")]
         public string SeriesName { get; set; }
 
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
     }
 }

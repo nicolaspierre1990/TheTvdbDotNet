@@ -5,14 +5,9 @@ using TheTvdbDotNet.Repositories;
 
 namespace TheTvdbDotNet.Ninject
 {
-    public class TheTvdbDotNetModule : NinjectModule
+    public class TheTvdbDotNetModule(string apiKey) : NinjectModule
     {
-        private readonly string apiKey;
-
-        public TheTvdbDotNetModule(string apiKey)
-        {
-            this.apiKey = apiKey;
-        }
+        private readonly string apiKey = apiKey;
 
         public override void Load()
         {

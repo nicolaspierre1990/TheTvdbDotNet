@@ -1,19 +1,19 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TheTvdbDotNet
 {
     public class Links
     {
-        [JsonProperty("first")]
+        [JsonPropertyName("first")]
         public int? First { get; set; }
 
-        [JsonProperty("last")]
+        [JsonPropertyName("last")]
         public int? Last { get; set; }
 
-        [JsonProperty("next")]
+        [JsonPropertyName("next")]
         public int? Next { get; set; }
 
-        [JsonProperty("previous")]
+        [JsonPropertyName("previous")]
         public int? Previous { get; set; }
     }
 }

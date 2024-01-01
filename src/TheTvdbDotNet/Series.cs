@@ -1,73 +1,73 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TheTvdbDotNet
 {
     public class Series
     {
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public int Id { get; set; }
 
-        [JsonProperty("seriesName")]
+        [JsonPropertyName("seriesName")]
         public string SeriesName { get; set; }
 
-        [JsonProperty("aliases")]
+        [JsonPropertyName("aliases")]
         public string[] Aliases { get; set; }
 
-        [JsonProperty("banner")]
+        [JsonPropertyName("banner")]
         public string Banner { get; set; }
 
-        [JsonProperty("seriesId")]
+        [JsonPropertyName("seriesId")]
         public string SeriesId { get; set; }
 
-        [JsonProperty("status")]
+        [JsonPropertyName("status")]
         public string Status { get; set; }
 
-        [JsonProperty("firstAired")]
+        [JsonPropertyName("firstAired")]
         public string FirstAired { get; set; }
 
-        [JsonProperty("network")]
+        [JsonPropertyName("network")]
         public string Network { get; set; }
 
-        [JsonProperty("networkId")]
+        [JsonPropertyName("networkId")]
         public string NetworkId { get; set; }
 
-        [JsonProperty("runtime")]
+        [JsonPropertyName("runtime")]
         public string Runtime { get; set; }
 
-        [JsonProperty("genre")]
+        [JsonPropertyName("genre")]
         public string[] Genre { get; set; }
 
-        [JsonProperty("overview")]
+        [JsonPropertyName("overview")]
         public string Overview { get; set; }
 
-        [JsonProperty("lastUpdated")]
+        [JsonPropertyName("lastUpdated")]
         public long LastUpdated { get; set; }
 
-        [JsonProperty("airsDayOfWeek")]
+        [JsonPropertyName("airsDayOfWeek")]
         public string AirsDayOfWeek { get; set; }
 
-        [JsonProperty("airsTime")]
+        [JsonPropertyName("airsTime")]
         public string AirsTime { get; set; }
 
-        [JsonProperty("rating")]
+        [JsonPropertyName("rating")]
         public string Rating { get; set; }
 
-        [JsonProperty("imdbId")]
+        [JsonPropertyName("imdbId")]
         public string ImdbId { get; set; }
 
-        [JsonProperty("zap2itId")]
+        [JsonPropertyName("zap2itId")]
         public string Zap2itId { get; set; }
 
-        [JsonProperty("added")]
+        [JsonPropertyName("added")]
         public string Added { get; set; }
 
-        [JsonProperty("addedBy")]
+        [JsonPropertyName("addedBy")]
         public object AddedBy { get; set; }
 
-        [JsonProperty("siteRating")]
+        [JsonPropertyName("siteRating")]
         public double SiteRating { get; set; }
 
-        [JsonProperty("siteRatingCount")]
+        [JsonPropertyName("siteRatingCount")]
         public int SiteRatingCount { get; set; }
     }
 }

@@ -1,26 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <Version>0.1.0</Version>
-    <TargetFramework>net461</TargetFramework>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <Authors>Andrew Jackson</Authors>
-    <Company>Andrew Jackson</Company>
-    <Description>Ninject module for TheTvdbDotNet</Description>
-    <Copyright>Andrew Jackson</Copyright>
-    <PackageLicenseUrl>https://github.com/a-jackson/TheTvdbDotNet/blob/master/LICENSE</PackageLicenseUrl>
-    <PackageProjectUrl>https://github.com/a-jackson/TheTvdbDotNet</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/a-jackson/TheTvdbDotNet</RepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageTags>tvdb</PackageTags>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Version>0.1.0</Version>
+		<TargetFramework>net8.0</TargetFramework>
+		<PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+		<Authors>Andrew Jackson</Authors>
+		<Company>Andrew Jackson</Company>
+		<Description>Ninject module for TheTvdbDotNet</Description>
+		<Copyright>Andrew Jackson</Copyright>
+		<PackageLicenseUrl>https://github.com/a-jackson/TheTvdbDotNet/blob/master/LICENSE</PackageLicenseUrl>
+		<PackageProjectUrl>https://github.com/a-jackson/TheTvdbDotNet</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/a-jackson/TheTvdbDotNet</RepositoryUrl>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>tvdb</PackageTags>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Ninject" Version="3.2.2" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Ninject" Version="3.*" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\TheTvdbDotNet\TheTvdbDotNet.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\TheTvdbDotNet\TheTvdbDotNet.csproj" />
+	</ItemGroup>
 
 </Project>

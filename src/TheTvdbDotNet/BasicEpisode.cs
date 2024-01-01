@@ -1,37 +1,37 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TheTvdbDotNet
 {
     public class BasicEpisode
     {
-        [JsonProperty("absoluteNumber")]
+        [JsonPropertyName("absoluteNumber")]
         public int? AbsoluteNumber { get; set; }
 
-        [JsonProperty("airedEpisodeNumber")]
+        [JsonPropertyName("airedEpisodeNumber")]
         public int? AiredEpisodeNumber { get; set; }
 
-        [JsonProperty("airedSeason")]
+        [JsonPropertyName("airedSeason")]
         public int? AiredSeason { get; set; }
 
-        [JsonProperty("dvdEpisodeNumber")]
+        [JsonPropertyName("dvdEpisodeNumber")]
         public int? DvdEpisodeNumber { get; set; }
 
-        [JsonProperty("dvdSeason")]
+        [JsonPropertyName("dvdSeason")]
         public int? DvdSeason { get; set; }
 
-        [JsonProperty("episodeName")]
+        [JsonPropertyName("episodeName")]
         public string EpisodeName { get; set; }
 
-        [JsonProperty("firstAired")]
+        [JsonPropertyName("firstAired")]
         public string FirstAired { get; set; }
 
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public int? Id { get; set; }
 
-        [JsonProperty("lastUpdated")]
+        [JsonPropertyName("lastUpdated")]
         public long? LastUpdated { get; set; }
 
-        [JsonProperty("overview")]
+        [JsonPropertyName("overview")]
         public string Overview { get; set; }
     }
 }

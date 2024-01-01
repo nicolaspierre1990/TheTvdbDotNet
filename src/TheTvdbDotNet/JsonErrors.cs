@@ -1,16 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TheTvdbDotNet
 {
     public class JsonErrors
     {
-        [JsonProperty("")]
+        [JsonPropertyName("")]
         public string[] InvalidFilters { get; set; }
 
-        [JsonProperty("invalidLanguage")]
+        [JsonPropertyName("invalidLanguage")]
         public string InvalidLanguage { get; set; }
 
-        [JsonProperty("invalidQueryParams")]
+        [JsonPropertyName("invalidQueryParams")]
         public string[] InvalidQueryParams { get; set; }
     }
 }

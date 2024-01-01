@@ -1,17 +1,17 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace TheTvdbDotNet.Authentication
 {
     public class Token
     {
-        [JsonProperty("exp")]
+        [JsonPropertyName("exp")]
         public long Expiry { get; set; }
 
-        [JsonProperty("id")]
+        [JsonPropertyName("id")]
         public string Id { get; set; }
 
-        [JsonProperty("orig_iat")]
+        [JsonPropertyName("orig_iat")]
         public long OriginalIssuedAt { get; set; }
 
         public DateTime ExpiryDateTime => Expiry.FromUnixTimestamp();

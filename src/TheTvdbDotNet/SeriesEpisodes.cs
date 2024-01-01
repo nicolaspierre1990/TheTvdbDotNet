@@ -1,16 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TheTvdbDotNet
 {
     public class SeriesEpisodes
     {
-        [JsonProperty("data")]
+        [JsonPropertyName("data")]
         public BasicEpisode[] Data { get; set; }
 
-        [JsonProperty("errrors")]
+        [JsonPropertyName("errrors")]
         public JsonErrors Errors { get; set; }
 
-        [JsonProperty("links")]
+        [JsonPropertyName("links")]
         public Links Links { get; set; }
     }
 }

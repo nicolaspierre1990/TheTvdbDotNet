@@ -1,13 +1,13 @@
-﻿using Newtonsoft.Json;
+﻿using System.Text.Json.Serialization;
 
 namespace TheTvdbDotNet
 {
     public class SeriesData
     {
-        [JsonProperty("data")]
+        [JsonPropertyName("data")]
         public Series Data { get; set; }
 
-        [JsonProperty("errors")]
+        [JsonPropertyName("errors")]
         public JsonErrors Errors { get; set; }
 
     }

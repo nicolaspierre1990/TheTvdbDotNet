@@ -3,8 +3,8 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 
 namespace TheTvdbDotNet.Http
 {
@@ -40,7 +40,7 @@ namespace TheTvdbDotNet.Http
 
         public async Task<T> PostResponseAsync<T>(string uri, object postData)
         {
-            var postJson = JsonConvert.SerializeObject(postData);
+            var postJson = JsonSerializer.Serialize(postData);
             var request = new HttpRequestMessage(HttpMethod.Post, uri)
             {
                 Content = new StringContent(postJson, Encoding.UTF8, "application/json"),
@@ -74,6 +74,6 @@ namespace TheTvdbDotNet.Http
             }
         }
 
-        private T Deserialize<T>(string json) => JsonConvert.DeserializeObject<T>(json);
+        private T Deserialize<T>(string json) => JsonSerializer.Deserialize<T>(json);
     }
 }
