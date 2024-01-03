@@ -2,51 +2,50 @@
 using System.Text;
 using System.Text.Json;
 
-namespace TheTvdbDotNet.Authentication
+namespace TheTvdbDotNet.Authentication;
+
+public class AuthenticationToken : IAuthenticationToken
 {
-    public class AuthenticationToken : IAuthenticationToken
+    public string TokenString { get; private set; }
+
+    public Token Token { get; private set; }
+
+    public bool IsAuthenticated => TokenString != null && Token.ExpiryDateTime > DateTime.UtcNow;
+
+    public void SetToken(string token)
     {
-        public string TokenString { get; private set; }
+        TokenString = token;
+        Token = JsonSerializer.Deserialize<Token>(Decode(token));
+    }
 
-        public Token Token { get; private set; }
-
-        public bool IsAuthenticated => TokenString != null && Token.ExpiryDateTime > DateTime.UtcNow;
-
-        public void SetToken(string token)
+    private static string Decode(string token)
+    {
+        var parts = token.Split('.');
+        if (parts.Length != 3)
         {
-            TokenString = token;
-            Token = JsonSerializer.Deserialize<Token>(Decode(token));
+            throw new ArgumentException("Token must consist from 3 parts separated by dot");
         }
 
-        private string Decode(string token)
-        {
-            var parts = token.Split('.');
-            if (parts.Length != 3)
-            {
-                throw new ArgumentException("Token must consist from 3 parts separated by dot");
-            }
+        return Encoding.UTF8.GetString(DecodePayload(parts[1]));
+    }
 
-            return Encoding.UTF8.GetString(DecodePayload(parts[1]));
-        }
-
-        private byte[] DecodePayload(string input)
+    private static byte[] DecodePayload(string input)
+    {
+        input = input.Replace('-', '+');
+        input = input.Replace('_', '/');
+        switch (input.Length % 4)
         {
-            input = input.Replace('-', '+');
-            input = input.Replace('_', '/');
-            switch (input.Length % 4)
-            {
-                case 0:
-                    break;
-                case 2:
-                    input += "==";
-                    break;
-                case 3:
-                    input += "=";
-                    break;
-                default:
-                    throw new FormatException("Illegal base64url string!");
-            }
-            return Convert.FromBase64String(input);
+            case 0:
+                break;
+            case 2:
+                input += "==";
+                break;
+            case 3:
+                input += "=";
+                break;
+            default:
+                throw new FormatException("Illegal base64url string!");
         }
+        return Convert.FromBase64String(input);
     }
 }
